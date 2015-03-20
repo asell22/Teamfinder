@@ -1,0 +1,16 @@
+<div id="search-form">
+
+<h1>Home Page</h1>
+
+<%= form_tag("/search", method: "post") do %>
+  <%= label_tag(:city, "Enter City:") %>
+  <%= text_field_tag(:city) %>
+
+  <p>
+    <%= label_tag(:team, "Enter Team:") %>
+    <%= text_field_tag(:team) %>
+  </p>
+  <button id="search">Search</button>
+<% end %>
+</div>
+<div id="map-canvas" style='height:100%;'></div>
