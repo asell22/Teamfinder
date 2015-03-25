@@ -1,0 +1,38 @@
+<h1>Sign Up</h1>
+
+<%= form_for @user, url: signup_path do |f| %>
+
+  <% if @user.errors.present? %>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <div>
+    <%= f.label :email %>
+  </div>
+  <div>
+    <%= f.email_field :email %>
+  </div>
+
+  <div>
+    <%= f.label :password %>
+  </div>
+  <div>
+    <%= f.password_field :password %>
+  </div>
+
+  <div>
+    <%= f.label :password_confirmation %>
+  </div>
+  <div>
+    <%= f.password_field :password_confirmation %>
+  </div>
+
+  <div>
+    <%= f.submit "Sign up" %>
+  </div>
+
+<% end %>

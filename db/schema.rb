@@ -11,16 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150308222657) do
+ActiveRecord::Schema.define(version: 20150325174659) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "bars", force: true do |t|
-    t.float    "latitude"
-    t.float    "longitude"
     t.string   "name"
-    t.string   "url"
     t.string   "address"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "city"
+  end
+
+  create_table "users", force: true do |t|
+    t.string "email"
+    t.string "password_digest"
   end
 
 end

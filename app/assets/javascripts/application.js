@@ -16,3 +16,4 @@
 //= require_tree .
 //= require ajax.js
 //= require underscore
+//= require semantic-ui

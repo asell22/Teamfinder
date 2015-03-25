@@ -1,0 +1,22 @@
+<h2>Fill out the form to add a bar </h2>
+
+<%= form_for @bar, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+  <div>
+    <%= f.label :name %>
+  </div>
+  <div>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :address %>
+  </div>
+  <div>
+    <%= f.text_field :address %>
+  </div>
+  <div>
+    <%= f.label :city %>
+  </div>
+  <div>
+    <%= f.text_field :city %>
+  </div>
+<% end %>

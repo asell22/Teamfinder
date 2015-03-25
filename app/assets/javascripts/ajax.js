@@ -1,6 +1,6 @@
 var data;
 $(document).ready(function () {
-    $('button#search').click(function (e) {
+    $('#search').click(function (e) {
         e.preventDefault();
         $.post('/search', $('input')
             .serialize())
