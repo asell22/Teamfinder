@@ -16,6 +16,7 @@ $(document).ready(function () {
 
       $("#showList").empty()
 
+
 			data.businesses.splice(5)
 
       $.each(data.businesses, function (i) {
@@ -58,28 +59,29 @@ $(document).ready(function () {
 
 function setBarDetails(barObj) {
 	var phone = getPhoneNumber(barObj.display_phone)
-  google.maps.event.addDomListener(window, 'load', initialize(barObj));
+
 	$("#barDetails").append(
-	'<div class="ui card" >\
-	   <div class="image">\
-	     <img src="' + barObj.image_url + '">\
-	   </div>\
-	   <div class="content">\
-	     <a class="header" href="' + barObj.url +'">'+ barObj.name +'</a>\
-	     <div class="description">'+ barObj.location.display_address[0] +', '+ barObj.location.display_address[barObj.location.display_address.length-1] +
-	 		'</div>\
-	  	</div>\
-	 	<div class="extra content">'+ phone +
-	 	'</div>\
-		<div class="extra content"><div class="ui teal basic button">Add This Bar</div></div>\
-	 </div>'
+  	'<div class="ui card" >\
+  	  <div class="image"><div id="map-canvas" style="height:100%; width:100%"></div></div>\
+      <div class="content">\
+  	    <a class="header" href="' + barObj.url +'">'+ barObj.name +'</a>\
+  	    <div class="description">'+ barObj.location.display_address[0] +', '+ barObj.location.display_address[barObj.location.display_address.length-1] +'</div>\
+  	  </div>\
+  	 	<div class="extra content">'+ phone +'</div>\
+  		<div class="extra content"><div class="ui teal basic button">Add This Bar</div></div>\
+  	</div>'
 	)
 
 	$("#barDetails").data(barObj)
+
+  console.log("window", window);
+  google.maps.event.addDomListener(window, 'load', addMapInitialize(barObj));
+  $("form").fadeOut(300, function() { $(this).remove(); });
+
 }
 
 function getPhoneNumber(phoneNumStr) {
-  if (phoneNumStr){
+  if (phoneNumStr && phoneNumStr.match(/^\+\d-\d{3}-\d{3}-\d{4}$/)){
   	var phoneArray = phoneNumStr.split("-");
     var formattedPhoneNumber = "(" + phoneArray[1] + ") " + phoneArray[2] + "-" + phoneArray[3]
   }else{

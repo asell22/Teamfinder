@@ -1,23 +1,28 @@
-
-  <h1 class="ui dividing header">Fill out the form to add a bar</h1>
-
+<div class="ui dividing header column">
+  <span class="ui header">Fill out the form to add a bar</span>
+  <%= link_to "Back", root_path, class:"pull-right"%>
+</div>
 
   <%= form_tag(nil, {class:"ui form"}) do %>
-    <div class="two fields four column centered row">
-      <div class="field column">
+    <div class="fields">
+      <div class="six wide field">
         <%= label_tag(:city, "Enter City:") %>
         <%= text_field_tag(:city) %>
       </div>
-      <div class="field column">
+      <div class="six wide field">
         <%= label_tag(:name, "Enter Bar:") %>
         <%= text_field_tag(:name) %>
       </div>
+      <div class="four wide field">
+        <label class="hidden">.</label>
+        <button type="submit" class="ui submit button">Find</button>
+      </div>
     </div>
 
-    <button type="submit" class="ui submit button">Find</button>
+
   <% end %>
 <div>
-  <%= link_to "Back", root_path %>
+
 </div>
 
 <div id="barDetails"></div>

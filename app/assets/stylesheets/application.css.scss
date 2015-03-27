@@ -25,6 +25,8 @@ body {
 
 }
 
+.hidden{visibility:hidden}
+
 #button {
   padding: 10px;
 }
@@ -57,4 +59,12 @@ body {
 
 #barDetails .button{
   width: 100%;
+}
+
+#showList{
+  postion:absolute;
+}
+
+.pull-right{
+  float:right;
 }
