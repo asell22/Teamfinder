@@ -8,6 +8,11 @@ gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass', branch: 'v1.0beta'
 
 gem "pg"
 
+gem 'geocoder'
+
+
+
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'

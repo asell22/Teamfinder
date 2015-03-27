@@ -10,7 +10,7 @@ Rails.application.routes.draw do
    get '/sign-in' => 'authentication#new', as: :signin
    post '/sign-in' => 'authentication#create'
    get '/sign-out' => 'authentication#destroy', as: :signout
-
+   post '/bars/search' => 'bars#search', as: :yelpsearch
    resources :bars
 
   # Example of regular route:

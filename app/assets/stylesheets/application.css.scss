@@ -45,3 +45,16 @@ body {
   z-index: 1;
   background-color: red;
 }
+
+.bar {
+  width: 100%;
+  display:block;
+}
+
+.content.active{
+  background-color: #00E600;
+}
+
+#barDetails .button{
+  width: 100%;
+}

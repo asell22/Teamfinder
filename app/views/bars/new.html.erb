@@ -1,22 +1,25 @@
-<h2>Fill out the form to add a bar </h2>
 
-<%= form_for @bar, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
-  <div>
-    <%= f.label :name %>
-  </div>
-  <div>
-    <%= f.text_field :name %>
-  </div>
-  <div>
-    <%= f.label :address %>
-  </div>
-  <div>
-    <%= f.text_field :address %>
-  </div>
-  <div>
-    <%= f.label :city %>
-  </div>
-  <div>
-    <%= f.text_field :city %>
-  </div>
-<% end %>
+  <h1 class="ui dividing header">Fill out the form to add a bar</h1>
+
+
+  <%= form_tag(nil, {class:"ui form"}) do %>
+    <div class="two fields four column centered row">
+      <div class="field column">
+        <%= label_tag(:city, "Enter City:") %>
+        <%= text_field_tag(:city) %>
+      </div>
+      <div class="field column">
+        <%= label_tag(:name, "Enter Bar:") %>
+        <%= text_field_tag(:name) %>
+      </div>
+    </div>
+
+    <button type="submit" class="ui submit button">Find</button>
+  <% end %>
+<div>
+  <%= link_to "Back", root_path %>
+</div>
+
+<div id="barDetails"></div>
+
+<div id="showList" class="ui modal"></div>

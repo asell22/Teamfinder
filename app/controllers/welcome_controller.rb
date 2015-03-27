@@ -9,10 +9,10 @@ class WelcomeController < ApplicationController
     client = Yelp::Client.new
     request = Location.new(
      city: params[:city],
-     term: '\'' + params[:team] + '\'',
+     term: params[:team],
      category_filter: "bars",
      )
-     p '\'' + params[:team] + '\''
+
     response = client.search(request)
 
 
