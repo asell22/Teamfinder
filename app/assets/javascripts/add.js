@@ -44,6 +44,7 @@ $(document).ready(function () {
 
   $("#showList").on("click", ".bar", function() {
     $('.ui.modal').modal('hide')
+
 		// console.log(barList);
     // console.log(barList.businesses[parseInt($(this).data("id"))]);
 		setBarDetails(barList.businesses[parseInt($(this).data("id"))])
@@ -57,7 +58,7 @@ $(document).ready(function () {
 
 function setBarDetails(barObj) {
 	var phone = getPhoneNumber(barObj.display_phone)
-
+  google.maps.event.addDomListener(window, 'load', initialize(barObj));
 	$("#barDetails").append(
 	'<div class="ui card" >\
 	   <div class="image">\
@@ -78,8 +79,11 @@ function setBarDetails(barObj) {
 }
 
 function getPhoneNumber(phoneNumStr) {
-	var phoneArray = phoneNumStr.split("-");
-  var formattedPhoneNumber = "(" + phoneArray[1] + ") " + phoneArray[2] + "-" + phoneArray[3]
-
+  if (phoneNumStr){
+  	var phoneArray = phoneNumStr.split("-");
+    var formattedPhoneNumber = "(" + phoneArray[1] + ") " + phoneArray[2] + "-" + phoneArray[3]
+  }else{
+    formattedPhoneNumber = "No phone found";
+  }
 	return formattedPhoneNumber;
 }
