@@ -2,7 +2,7 @@ class BarsController < ApplicationController
   include Yelp::V2::Search::Request
 
   def new
-    @bar = Bar.new
+
   end
 
   def search
@@ -18,12 +18,14 @@ class BarsController < ApplicationController
   end
 
   def create
-
-
-    # @bar = Bar.new({
-    #   city:
-    #   })
-
+    @bar = Bar.new(bar_params)
+    if @bar.save
+      puts "good"
+      render json: @bar
+    else
+      puts "bad"
+      render json: @bar.errors, status: 500
+    end
   end
     #
     # response = client.search(request)

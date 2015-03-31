@@ -52,9 +52,42 @@ $(document).ready(function () {
 	});
 
 	$("#barDetails").on("click", ".button", function(){
-		console.log($(this).closest("#barDetails").data());
-	});
+    var barDetails = $("#barDetails").data();
+    console.log(barDetails);
 
+    $.ajax('/bars',
+      {type: 'post',
+      data: {
+        bar: {
+          name: barDetails.name,
+          address: barDetails.location.display_address[0],
+          city: barDetails.location.city,
+          latitude: barDetails.location.coordinate.latitude,
+          longitude: barDetails.location.coordinate.longitude,
+          url: barDetails.url,
+          phone: barDetails.phone
+          }
+        }
+      }
+    )
+
+    $("#teamInput").html(
+      '<div class="ui action input">\
+        <input type="text" placeholder="Enter Team">\
+        <button class="ui button" >Submit</button>\
+      </div>'
+    )
+  });
+
+  $("#teamInput").on("click", ".button", function() {
+      // var teamName = $(this).val();
+      // $.ajax('/bars',
+      //   {type: 'post',
+      //   data: {}
+      // )
+
+
+  });
 });
 
 function setBarDetails(barObj) {
