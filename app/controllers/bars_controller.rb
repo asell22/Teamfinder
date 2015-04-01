@@ -19,14 +19,17 @@ class BarsController < ApplicationController
   end
 
   def create
-    @bar = Bar.new(bar_params)
-    # @team.create(name: , bar_id: @bar.id)
-    if @bar.save
+    bar = Bar.new(bar_params)
+
+    if bar.save
       puts "good"
-      render json: @bar
+      params[:teams].each do |team_name|
+        bar.teams.create({name: team_name})
+      end
+      render json: bar
     else
       puts "bad"
-      render json: @bar.errors, status: 500
+      render json: bar.errors, status: 500
     end
   end
 
