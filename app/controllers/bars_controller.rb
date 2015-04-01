@@ -5,20 +5,22 @@ class BarsController < ApplicationController
 
   end
 
+
   def search
 
    client = Yelp::Client.new
-        request = Location.new(
-         term: params[:name],
-         city: params[:city],
-         category_filter: "bars",
-         )
-        response = client.search(request)
-        render json: response
+    request = Location.new(
+      term: params[:name],
+      city: params[:city],
+      category_filter: "bars",
+    )
+    response = client.search(request)
+    render json: response
   end
 
   def create
     @bar = Bar.new(bar_params)
+    # @team.create(name: , bar_id: @bar.id)
     if @bar.save
       puts "good"
       render json: @bar
@@ -27,7 +29,7 @@ class BarsController < ApplicationController
       render json: @bar.errors, status: 500
     end
   end
-    #
+
     # response = client.search(request)
     # puts "#"*100
     # p response

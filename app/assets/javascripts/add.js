@@ -51,9 +51,17 @@ $(document).ready(function () {
 		setBarDetails(barList.businesses[parseInt($(this).data("id"))])
 	});
 
-	$("#barDetails").on("click", ".button", function(){
+	$("#teamInput").on("click", "#submitBar", function(){
     var barDetails = $("#barDetails").data();
-    console.log(barDetails);
+    var teamNames = $(".team-list").html();
+    var teamsRaw = teamNames.replace(/<\/div>|<div>/g, "^").split("^");
+    var teams = [];
+    $.each(teamsRaw, function (i, name) {
+      if (name !== "") {
+        teams.push(name);
+      };
+    })
+
 
     $.ajax('/bars',
       {type: 'post',
@@ -66,27 +74,24 @@ $(document).ready(function () {
           longitude: barDetails.location.coordinate.longitude,
           url: barDetails.url,
           phone: barDetails.phone
-          }
+         },
+        teams: teams
         }
       }
     )
-
-    $("#teamInput").html(
-      '<div class="ui action input">\
-        <input type="text" placeholder="Enter Team">\
-        <button class="ui button" >Submit</button>\
-      </div>'
-    )
   });
 
-  $("#teamInput").on("click", ".button", function() {
-      // var teamName = $(this).val();
-      // $.ajax('/bars',
-      //   {type: 'post',
-      //   data: {}
-      // )
+  $("#teamInput").on("submit", "form", function(e) {
+    e.preventDefault();
+    var teamName = $('#teamInput input').val();
+    $('input').val("");
 
 
+    $(".team-list").append(
+      '<div>'+ teamName +'</div>'
+    )
+
+    console.log($(".team-list").text())
   });
 });
 
@@ -101,7 +106,6 @@ function setBarDetails(barObj) {
   	    <div class="description">'+ barObj.location.display_address[0] +', '+ barObj.location.display_address[barObj.location.display_address.length-1] +'</div>\
   	  </div>\
   	 	<div class="extra content">'+ phone +'</div>\
-  		<div class="extra content"><div class="ui teal basic button">Add This Bar</div></div>\
   	</div>'
 	)
 
@@ -110,6 +114,19 @@ function setBarDetails(barObj) {
   console.log("window", window);
   google.maps.event.addDomListener(window, 'load', addMapInitialize(barObj));
   $("form").fadeOut(300, function() { $(this).remove(); });
+
+  $("#teamInput").html(
+    '<div class="teamForm ui secondary segment">\
+    <form>\
+    <div class="ui action input">\
+      <input type="text" placeholder="Enter Team">\
+      <button class="ui button" >Submit</button>\
+    </div>\
+    </form>\
+    <div class="team-list"></div>\
+    <div id="submitBar" class="ui teal basic button">Add This Bar</div>\
+    </div>'
+  )
 
 }
 
