@@ -1,6 +1,26 @@
 class BarsController < ApplicationController
   include Yelp::V2::Search::Request
 
+  def index
+    serialized_results = []
+    bars = Bar.where(city:params[:city])
+
+    bars.each do |bar|
+      serialized_results.push({
+        name: bar.name,
+        address: bar.address,
+        city: bar.city,
+        latitude: bar.latitude,
+        longitude: bar.longitude,
+        phone: bar.phone,
+        url: bar.url,
+        teams: bar.teams
+      })
+    end
+
+    render json: serialized_results
+  end
+
   def new
 
   end
@@ -27,6 +47,8 @@ class BarsController < ApplicationController
         bar.teams.create({name: team_name})
       end
       render json: bar
+      flash.notice = "Your bar has been added!"
+      redirect_to :root_path
     else
       puts "bad"
       render json: bar.errors, status: 500

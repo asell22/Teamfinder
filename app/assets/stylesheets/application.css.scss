@@ -102,7 +102,26 @@ body, html {
 }
 
 h1.ui.dividing.header {
-  font-family: 'Alfa Slab One', cursive;
+  font-family: 'Alfa Slab One';
   color: #BF1919;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+
+body > div.ui.secondary.segment {
+  background-color: rgba(255,255,255,0.8);
+  // width: 40em;
+}
+
+body > div.ui.secondary.segment *{
+  opacity:1;
+}
+
+body > div.ui.secondary.segment a {
+  color: #B20000;
+}
+
+#add-form > div.fields > div.four.wide.field > button {
+  background-color: #B20000;
+  color: white;
 }

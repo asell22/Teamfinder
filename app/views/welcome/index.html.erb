@@ -1,12 +1,8 @@
 
-
-<form class="ui form">
-
   <h1 class="ui dividing header">Sports Bar Finder</h1>
 
-
-  <%= form_tag("/search", method: "post") do %>
-    <div class="two fields four column centered row">
+  <%= form_tag("", {class:"ui form", id:"bar-search-form"}) do %>
+    <div class="two fields two column centered row">
       <div class="field column">
         <%= label_tag(:city, "Enter City:") %>
         <%= text_field_tag(:city) %>
@@ -17,8 +13,8 @@
       </div>
     </div>
 
-    <div id="search" class="ui submit button">Search</div>
+    <button type="submit" class="ui submit red button">Search</button>
   <% end %>
-</form
+
 </div>
 <div id="map-canvas" class="hidden" style='height:100%;'></div>

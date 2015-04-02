@@ -1,18 +1,21 @@
-var data;
 $(document).ready(function () {
-    $('#search').click(function (e) {
-        e.preventDefault();
-
-        $.post('/bars/search', $('input')
-            .serialize())
-            .done(function (data) {
-               console.log(data)
-              data = data;
-              $("#map-canvas").removeClass("hidden");
-              google.maps.event.addDomListener(window, 'load', initialize(data));
-        })
-            .fail(function (res) {
-            throw "Ajax request failed";
-        })
-    });
+  console.log("loaded");
+  $('#bar-search-form').on('submit', function (e) {
+    e.preventDefault();
+    console.log("submited");
+    var req = {
+      city: $('#bar-search-form input[name="city"]').val(),
+      team: $('#bar-search-form input[name="team"]').val()
+    }
+    console.log(req);
+    $.post('/bars/index', req)
+    .done(function (data) {
+      console.log("res", data);
+      $("#map-canvas").removeClass("hidden");
+      google.maps.event.addDomListener(window, 'load', initialize(data));
+    })
+    .fail(function (res) {
+      throw "Ajax request failed";
+    })
+  });
 });

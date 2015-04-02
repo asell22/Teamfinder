@@ -1,7 +1,7 @@
 $(document).ready(function () {
   $('.ui.modal').modal()
 
-  $('form [type="submit"]').click(function (e) {
+  $('#add-form').on('submit', function (e) {
     e.preventDefault();
 
 		$.ajax({

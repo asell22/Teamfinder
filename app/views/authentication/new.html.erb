@@ -1,6 +1,6 @@
 <h1>Sign In</h1>
 
-<%= form_tag signin_path do |f| %>
+<%= form_tag url: signin_path, class: "ui form" do |f| %>
 
   <% if @sign_in_error %>
     <p>
@@ -8,22 +8,17 @@
     </p>
   <% end %>
 
-  <div>
-    <%= label_tag :email %>
-  </div>
-  <div>
-    <%= email_field_tag :email %>
+  <div class="ui input">
+    <%= email_field_tag :email, "", placeholder:"email" %>
   </div>
 
-  <div>
-    <%= label_tag :password %>
-  </div>
-  <div>
-    <%= password_field_tag :password %>
-  </div>
 
+  <div class="ui input">
+    <%= password_field_tag :password, "", placeholder:"password" %>
+  </div>
+  <p></p>
   <div>
-    <%= submit_tag "Sign in" %>
+    <%= submit_tag "Sign in", class: "ui submit button" %>
   </div>
 
 <% end %>

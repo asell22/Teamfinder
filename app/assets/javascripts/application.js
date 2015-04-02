@@ -113,15 +113,15 @@ var styles = function (argument) {
 
 function initialize(data) {
   var myLatlng;
-  if (data.businesses) {
+  if (data) {
     myLatlng = new google.maps.LatLng(
-      data.businesses[0].location.coordinate.latitude,
-      data.businesses[0].location.coordinate.longitude
+      data[0].latitude,
+      data[0].longitude
     );
   }else{
     myLatlng = new google.maps.LatLng(
-      data.location.coordinate.latitude,
-      data.location.coordinate.longitude
+      data.latitude,
+      data.longitude
     );
 
   }
@@ -130,8 +130,8 @@ function initialize(data) {
     zoom: 14,
     center: myLatlng
   }
-  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
+  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
   var marker;
 
   $(window).resize(function() {
@@ -139,27 +139,27 @@ function initialize(data) {
     google.maps.event.trigger(map, "resize");
   });
 
+  for(var i = 0;i < data.length; i++){
 
-  for(var i = 0;i < data.businesses.length; i++){
     marker = new google.maps.Marker({
       position: new google.maps.LatLng(
-        data.businesses[i].location.coordinate.latitude,
-        data.businesses[i].location.coordinate.longitude
+        data[i].latitude,
+        data[i].longitude
       ),
       map: map,
-      name: data.businesses.name,
-      url: data.businesses.url,
-      display_phone: data.businesses[i].display_phone,
-      display_address: data.businesses[i].location.address[0]
+      name: data.name,
+      url: data.url,
+      display_phone: data[i].display_phone,
+      display_address: data[i].address[0]
 
     });
 
     var infoContent = function(i) {
-      entry = data.businesses[i]
+      entry = data[i]
       return '<div class="info_content">'
       + '<h3>' + entry.name + '</h3>'
-      + '<p>' +  entry.location.display_address[0] + '</p>'
-      + '<p>' + entry.display_phone + '</p>'
+      + '<p>' +  entry.address + '</p>'
+      + '<p>' + entry.phone + '</p>'
       + '<a href="' + entry.url + '">go to website</a></div>'
 
     };
@@ -174,6 +174,7 @@ function initialize(data) {
 
 
   }
+
 
   map.setOptions({styles: styles()});
 }

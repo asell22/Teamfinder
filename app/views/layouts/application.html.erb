@@ -12,6 +12,9 @@
 </head>
 <body>
 
+  <div class="ui secondary segment">
+
+
   <div class="nav">
   <% if current_user %>
     <%= link_to "Sign Out", signout_path %>
@@ -22,9 +25,11 @@
     |
     <%= link_to "Sign In", signin_path %>
   <% end %>
-</div>
+  </div>
 
-  <%= yield %>
+  <p class="flash"><%= flash.notice %></p>
 
+    <%= yield %>
+  </div>
 </body>
 </html>

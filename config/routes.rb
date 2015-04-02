@@ -11,6 +11,7 @@ Rails.application.routes.draw do
    post '/sign-in' => 'authentication#create'
    get '/sign-out' => 'authentication#destroy', as: :signout
    post '/bars/search' => 'bars#search', as: :yelpsearch
+   post '/bars/index' => 'bars#index'
    resources :bars
 
   # Example of regular route:
