@@ -3,19 +3,19 @@
   <%= link_to "Back", root_path, class:"pull-right", id:"back-link"%>
 </div>
 
-  <%= form_tag(nil, {class:"ui form", id:"add-form"}) do %>
+  <%= form_tag(yelpsearch_path, {class:"ui form", id:"add-form"}) do %>
     <div class="fields">
       <div class="six wide field">
-        <%= label_tag(:city, "Enter City:") %>
-        <%= text_field_tag(:city) %>
+        <!-- <%= label_tag(:city, "Enter City:") %> -->
+        <%= text_field_tag :city, "", placeholder: "Enter City" %>
       </div>
       <div class="six wide field">
-        <%= label_tag(:name, "Enter Bar:") %>
-        <%= text_field_tag(:name) %>
+        <!-- <%= label_tag(:name, "Enter Bar:") %> -->
+        <%= text_field_tag :name, "", placeholder: "Enter Bar" %>
       </div>
       <div class="four wide field">
         <label class="hidden">.</label>
-        <button type="submit" class="ui submit button">Find</button>
+        <button type="submit" class="ui submit button" id="find-button">Find</button>
       </div>
     </div>
 

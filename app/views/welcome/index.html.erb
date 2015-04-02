@@ -4,12 +4,12 @@
   <%= form_tag("", {class:"ui form", id:"bar-search-form"}) do %>
     <div class="two fields two column centered row">
       <div class="field column">
-        <%= label_tag(:city, "Enter City:") %>
-        <%= text_field_tag(:city) %>
+        <!-- <%= label_tag(:city, "Enter City:") %> -->
+        <%= text_field_tag :city, "", placeholder:"Enter City" %>
       </div>
       <div class="field column">
-        <%= label_tag(:team, "Enter Team:") %>
-        <%= text_field_tag(:team) %>
+        <!-- <%= label_tag(:team, "Enter Team:") %> -->
+        <%= text_field_tag :team, "", placeholder:"Enter Team"%>
       </div>
     </div>
 
