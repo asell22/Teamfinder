@@ -39,6 +39,8 @@ $(document).ready(function () {
     .fail(function (res) {
       throw "Ajax request f";
     })
+
+    return false;
   });
 
 
