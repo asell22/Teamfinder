@@ -10,7 +10,7 @@ gem "pg"
 
 gem 'geocoder'
 
-
+gem "google-search"
 
 
 

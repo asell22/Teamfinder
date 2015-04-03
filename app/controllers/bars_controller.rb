@@ -46,9 +46,10 @@ class BarsController < ApplicationController
       params[:teams].each do |team_name|
         bar.teams.create({name: team_name})
       end
+
       render json: bar
       flash.notice = "Your bar has been added!"
-      redirect_to :root_path
+
     else
       puts "bad"
       render json: bar.errors, status: 500

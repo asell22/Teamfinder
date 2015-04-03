@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  console.log("loaded");
+  // console.log("loaded");
   $('#bar-search-form').on('submit', function (e) {
     e.preventDefault();
     console.log("submited");
