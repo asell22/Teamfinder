@@ -62,6 +62,7 @@ $(document).ready(function () {
       if (name !== "") {
         teams.push(name);
       };
+    $(".team-list").html("Your Bar Has Been Added!");  
     })
 
 
