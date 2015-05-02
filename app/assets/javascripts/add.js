@@ -1,8 +1,10 @@
 $(document).ready(function () {
-  $('.ui.modal').modal()
 
-  $('#add-form').on('submit', function (e) {
+
+  $('#add-form').on("submit", function (e) {
     e.preventDefault();
+    alert("You submitted")
+    $('.ui.modal').modal()
 
 		$.ajax({
 			method: "post",
@@ -40,6 +42,7 @@ $(document).ready(function () {
       throw "Ajax request f";
     })
 
+
     return false;
   });
 
@@ -62,7 +65,7 @@ $(document).ready(function () {
       if (name !== "") {
         teams.push(name);
       };
-    $(".team-list").html("Your Bar Has Been Added!");  
+    $(".team-list").html("Your Bar Has Been Added!");
     })
 
 
