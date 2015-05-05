@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'rails_12factor'
+
 gem 'yelpster'
 
 gem 'underscore-rails'
