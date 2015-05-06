@@ -46,9 +46,10 @@ class BarsController < ApplicationController
       params[:teams].each do |team_name|
         bar.teams.create({name: team_name})
       end
+      render :js => "window.location = '/'"
+      flash[:notice] = "Your bar has been suggested!"
 
-      render json: bar
-      flash.notice = "Your bar has been added!"
+
 
     else
       puts "bad"

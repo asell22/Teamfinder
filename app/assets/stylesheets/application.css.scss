@@ -21,7 +21,7 @@ html{
 body {
   height: 100%;
   margin: 0;
-  padding: 6px 250px;
+  padding: 0em 15em;
   background-image: url("background1.jpg");
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -35,7 +35,7 @@ body, html {
 .hidden{visibility:hidden}
 
 #button {
-  padding: 10px;
+  padding: 10em;
 }
 
 #map-canvas {
@@ -47,95 +47,95 @@ body, html {
   margin-top: 20px;
 }
 
-#search-form{
-  position: absolute;
-  top: 20px;
-  left: 282px;
-  z-index: 1;
-  background-color: red;
-}
+  #search-form{
+    // position: absolute;
+ //   top: 20px;
+ //   left: 282px;
+ //   z-index: 1;
+    background-color: red;
+  }
 
-.bar {
-  width: 100%;
-  display:block;
-}
+ .bar {
+   width: 100%;
+   display:block;
+ }
 
-.content.active{
-  background-color: #00E600;
-}
+ .content.active{
+   background-color: #00E600;
+  }
 
-#barDetails .button{
-  width: 100%;
-}
+  #barDetails .button{
+    width: 100em
+  }
 
-#showList{
-  postion:absolute;
-}
+ // #showList{
+ //   postion:absolute;
+ //  }
 
-.pull-right{
-  float:right;
-}
+ // .pull-right{
+ //   float:right;
+ // }
 
-#teamInput input{
-  width: 450px;
-  
-}
+ // #teamInput input{
+ //   width: 450px;
 
-#teamInput button{
-    border-top-left-radius: 0px;
-    border-bottom-left-radius: 0px;
-    float: right;
-    margin-right: -30;
-    margin-right: -85px;
-    margin-top: -37px;
-}
+ // }
 
-.teamForm.ui.secondary.segment {
-    // margin-bottom: 0em;
-    margin-top: 20px;
-    height: 330px;
-}
+ // #teamInput button{
+ //     border-top-left-radius: 0px;
+ //     border-bottom-left-radius: 0px;
+ //     float: right;
+ //     margin-right: -30;
+ //     margin-right: -85px;
+ //     margin-top: -37px;
+ // }
 
-.ui.basic.teal.button {
-  position: absolute;
-  bottom: 2px;
-  right: 0px;
-}
+  .teamForm.ui.secondary.segment {
+      margin-bottom: 20em;
+      margin-top: 1.5em;
+      height: 30.5em;
+  }
 
-h1.ui.dividing.header {
-  font-family: 'Alfa Slab One';
-  color: #BF1919;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-}
+ .ui.basic.teal.button {
+   position: absolute;
+   bottom: 0em;
+   right: 0em;
+ }
+
+  h1.ui.dividing.header {
+   font-family:'Alfa Slab One';
+   color: #BF1919;
+  //  text-shadow: -1em 0 black, 0 1em black, 1em 0 black, 0 -1em black;
+  }
 
 
-body > div.ui.secondary.segment {
-  background-color: rgba(255,255,255,0.8);
-  // width: 40em;
-}
+  body > div.ui.secondary.segment {
+    background-color: rgba(255,255,255,0.8);
+    width: 50em;
+  }
 
-body > div.ui.secondary.segment *{
-  opacity:1;
-}
+  body > div.ui.secondary.segment *{
+   opacity:1;
+  }
 
-body > div.ui.secondary.segment a {
-  color: #B20000;
-}
+  body > div.ui.secondary.segment a {
+    color: #B20000;
+  }
 
-#add-form > div.fields > div.four.wide.field > button {
-  background-color: #B20000;
-  color: white;
-}
+ #add-form > div.fields > div.four.wide.field > button {
+   background-color: #B20000;
+   color: white;
+  }
 
-#back-link {
-  margin-right: 20px;
-}
+ // #back-link {
+ //   margin-right: 20px;
+ // }
 
-#bar-search-form > button {
-  background-color: #B20000;
-}
+  #bar-search-form > button {
+    background-color: #B20000;
+  }
 
-#find-button {
-  position:absolute;
-  bottom: 14px;
-}
+ // #find-button {
+ //   position:absolute;
+ //   bottom: 14px;
+ // }

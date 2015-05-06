@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
 
 
@@ -58,16 +59,23 @@ $(document).ready(function () {
 
 	$("#teamInput").on("click", "#submitBar", function(){
     var barDetails = $("#barDetails").data();
-    var teamNames = $(".team-list").html();
-    var teamsRaw = teamNames.replace(/<\/div>|<div>/g, "^").split("^");
-    var teams = [];
-    $.each(teamsRaw, function (i, name) {
-      if (name !== "") {
-        teams.push(name);
-      };
-    $(".team-list").html("Your Bar Has Been Added!");
-    })
+    // var teamNames = $(".ui.search.dropdown").find('option:selected').text().replace(/NFL|NBA|MLB|/g, "").replace(/([a-z])([A-Z])/g, '$1 $2').split(" ")
+    //
+    // for(var i = 0; i < teamNames.length; i++){
+    //   if (i % 2 === 0){
+    //     teams.push(teamNames[i] + " " + teamNames[i + 1])
+    //   }
+    // }
+    console.log(teams)
+    // var teamsRaw = teamNames.replace(/<\/div>|<div>/g, "^").split("^");
 
+    // $.each(teamsRaw, function (i, name) {
+    //   if (name !== "") {
+    //     teams.push(name);
+    //   };
+    // $(".team-list").html("Your Bar Has Been Suggested!");
+    // })
+    //
 
     $.ajax('/bars',
       {type: 'post',
@@ -99,13 +107,8 @@ $(document).ready(function () {
   //
   //   console.log($(".team-list").text())
   // });
-
-
-
-
-
 });
-
+var teams = [];
 function setBarDetails(barObj) {
 	var phone = getPhoneNumber(barObj.display_phone)
 
@@ -128,7 +131,7 @@ function setBarDetails(barObj) {
 
 
   $("#teamInput").html(
-    '<div class="teamForm ui secondary segment">\
+    '<div class="teamForm ui secondary segment" style={height: 50%}>\
     <form>\
       <select class="ui search dropdown" id="MLB">\
         <option value="">MLB</option>\
@@ -233,43 +236,19 @@ function setBarDetails(barObj) {
       </select>\
     </form>\
     <div class="team-list"></div>\
-    <div id="submitBar" class="ui teal basic button">Add Bar</div>\
+    <div id="submitBar" class="ui teal basic button">Suggest Bar</div>\
     </div>'
   )
 
   $('.ui.search.dropdown').dropdown();
-  team = $('#MLB').prop("defaultSelected");
-  console.log(team)
-  $('#MLB').on("change", function(){
-    $("#MLB").not(this).each(function(){
-      $(this).val('');
-    });
+
+  $('.ui.search.dropdown').on("change", function(){
     var imageSource = $(this).find('option:selected').data('picture')
-    $(".team-list").html(
+    teams.push($(this).find('option:selected').text())
+    console.log(teams)
+    $(".team-list").append(
       '<img src="' + imageSource + '" style="width:45%; height:45%">'
-    );
-
-  });
-
-  $('#NFL').on("change", function(){
-    $("#NFL").not(this).each(function(){
-      $(this).val('');
-    });
-    var imageSource = $(this).find('option:selected').data('picture')
-    $(".team-list").html(
-      '<img src="' + imageSource + '" style="width:45%; height:45%">'
-    );
-
-  });
-
-  $('#NBA').on("change", function(){
-    $("#NBA").not(this).each(function(){
-      $(this).val('');
-    });
-    var imageSource = $(this).find('option:selected').data('picture')
-    $(".team-list").html(
-      '<img src="' + imageSource + '" style="width:45%; height:45%">'
-    );
+    )
 
   });
 }
