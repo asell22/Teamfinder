@@ -8,4 +8,14 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :current_user
+
+  private
+    def require_signin!
+      if current_user.nil?
+        flash[:error] = "You need to sign in or up before continuing."
+        redirect_to signin_url
+      end
+    end
+
+    helper_method :require_signin!    
 end

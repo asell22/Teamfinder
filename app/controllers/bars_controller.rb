@@ -1,5 +1,6 @@
 class BarsController < ApplicationController
   include Yelp::V2::Search::Request
+  before_action :require_signin!, except: [:index, :search]
 
   def index
     serialized_results = []
@@ -80,7 +81,7 @@ class BarsController < ApplicationController
 
 
   private
-
+  
   def bar_params
     params.require(:bar).permit(:city, :name, :address, :latitude, :longitude, :url, :phone)
   end
