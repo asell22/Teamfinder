@@ -1,6 +1,7 @@
 class BarsController < ApplicationController
   include Yelp::V2::Search::Request
   before_action :require_signin!, except: [:index, :search]
+  before_action :authorize_admin!, except: [:index, :search]
 
   def index
     serialized_results = []
@@ -20,6 +21,10 @@ class BarsController < ApplicationController
     end
 
     render json: serialized_results
+  end
+
+  def list
+    @bars = Bar.all
   end
 
   def new
@@ -81,7 +86,16 @@ class BarsController < ApplicationController
 
 
   private
-  
+
+  def authorize_admin!
+    require_signin!
+
+    unless current_user.admin?
+      flash[:notice] = "You must be an admin to do that."
+      redirect_to root_path
+    end
+  end
+
   def bar_params
     params.require(:bar).permit(:city, :name, :address, :latitude, :longitude, :url, :phone)
   end

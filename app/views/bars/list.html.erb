@@ -1,0 +1,28 @@
+<h1>Bars</h1>
+
+<table class="ui table">
+  <thead>
+    <tr>
+     <th>Bar</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>Phone Number</th>
+      <th>Team(s)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @bars.each do |bar| %>
+      <tr>
+        <td><%= bar.name%></td>
+        <td><%= bar.address%></td>
+        <td><%= bar.city%></td>
+        <td><%= bar.phone%></td>
+        <td><%= bar.teams.pluck(:name).join(",  ")%></td>
+        <!-- <td>bar.address</td>
+        <td>bar.city</td>
+        <td>bar.phone</td>
+        <td></td> -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
