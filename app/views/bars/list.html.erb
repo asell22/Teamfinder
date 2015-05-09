@@ -8,6 +8,8 @@
       <th>City</th>
       <th>Phone Number</th>
       <th>Team(s)</th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -18,6 +20,8 @@
         <td><%= bar.city%></td>
         <td><%= bar.phone%></td>
         <td><%= bar.teams.pluck(:name).join(",  ")%></td>
+        <td><%= link_to "Delete", bar_path(bar), method: :delete, data: {confirm: "Are you sure you want to delete this bar?"}%></td>
+        <td><%= link_to "Approve"%></td>
         <!-- <td>bar.address</td>
         <td>bar.city</td>
         <td>bar.phone</td>
