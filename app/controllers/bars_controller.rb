@@ -63,6 +63,16 @@ class BarsController < ApplicationController
     end
   end
 
+  def destroy
+    @bar = Bar.find(params[:id])
+    @bar.destroy
+    redirect_to bars_list_path, notice: "Bar has been deleted"
+  end
+
+  def show
+    @bar = Bar.find(params[:id])
+  end
+
     # response = client.search(request)
     # puts "#"*100
     # p response
