@@ -247,7 +247,7 @@ function setBarDetails(barObj) {
     teams.push($(this).find('option:selected').text())
     console.log(teams)
     $(".team-list").append(
-      '<img src="' + imageSource + '" style="width:12em; height:12em;">'
+      '<img src="' + imageSource + '" style="width:12.5em; height:12.5em;">'
     )
 
   });
