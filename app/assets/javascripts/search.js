@@ -17,7 +17,7 @@ $(document).ready(function () {
       google.maps.event.addDomListener(window, 'load', initialize(data));
 
       if (!data[0]) {
-        $('#bar-search-form').prepend('<p class="errors"> Sorry. We don\'t have a bar in this city that\'s associated with this team. If you know of one, please suggest one. </p>')
+        $('#bar-search-form').prepend('<p class="errors"> Sorry. We do not have a bar in this city that is associated with this team. If you know of one, please sign in to suggest one. </p>')
       }
 
 
