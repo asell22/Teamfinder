@@ -14,6 +14,8 @@ gem 'geocoder'
 
 gem "google-search"
 
+gem 'pry'
+
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

@@ -112,7 +112,7 @@ var styles = function (argument) {
 
 function initialize(data) {
   var myLatlng;
-  if (data) {
+  if (data[0]) {
     myLatlng = new google.maps.LatLng(
       data[0].latitude,
       data[0].longitude

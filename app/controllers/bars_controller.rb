@@ -6,18 +6,25 @@ class BarsController < ApplicationController
   def index
     serialized_results = []
     bars = Bar.where(city:params[:city])
+    teams = Team.where(name: params[:team])
+    p "*" * 150
+    p teams.methods.sort
 
-    bars.each do |bar|
-      serialized_results.push({
-        name: bar.name,
-        address: bar.address,
-        city: bar.city,
-        latitude: bar.latitude,
-        longitude: bar.longitude,
-        phone: bar.phone,
-        url: bar.url,
-        teams: bar.teams
-      })
+    teams.each do |team|
+      bars.each do |bar|
+        if bar.id == team.bar_id
+          serialized_results.push({
+            name: bar.name,
+            address: bar.address,
+            city: bar.city,
+            latitude: bar.latitude,
+            longitude: bar.longitude,
+            phone: bar.phone,
+            url: bar.url,
+            teams: team
+          })
+        end
+      end
     end
 
     render json: serialized_results

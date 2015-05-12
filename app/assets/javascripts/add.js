@@ -1,10 +1,10 @@
 
+
 $(document).ready(function () {
 
 
   $('#add-form').on("submit", function (e) {
     e.preventDefault();
-    alert("You submitted")
     $('.ui.modal').modal()
 
 		$.ajax({
@@ -15,7 +15,9 @@ $(document).ready(function () {
     .done(function (data) {
       $('.ui.modal').modal('show');
 
-      var address = location.display_address;
+      // var address = location.display_address;
+      // console.log(address)
+
 
       $("#showList").empty()
 
@@ -52,7 +54,7 @@ $(document).ready(function () {
   $("#showList").on("click", ".bar", function() {
     $('.ui.modal').modal('hide')
 
-		// console.log(barList);
+		//  console.log($(this));
     // console.log(barList.businesses[parseInt($(this).data("id"))]);
 		setBarDetails(barList.businesses[parseInt($(this).data("id"))])
 	});
@@ -66,7 +68,7 @@ $(document).ready(function () {
     //     teams.push(teamNames[i] + " " + teamNames[i + 1])
     //   }
     // }
-    console.log(teams)
+    // console.log(teams)
     // var teamsRaw = teamNames.replace(/<\/div>|<div>/g, "^").split("^");
 
     // $.each(teamsRaw, function (i, name) {

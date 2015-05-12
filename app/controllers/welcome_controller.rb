@@ -6,18 +6,17 @@ class WelcomeController < ApplicationController
 
   def search
 
-    client = Yelp::Client.new
-    request = Location.new(
-     city: params[:city],
-     term: params[:team],
-     category_filter: "bars",
-     )
+    # client = Yelp::Client.new
+    # request = Location.new(
+    #  city: params[:city],
+    #  term: params[:team],
+    #  category_filter: "bars",
+    #  )
+    #
+    # response = client.search(request)
+    # puts response.methods.sort
+    # render json: response
 
-    response = client.search(request)
-
-
-
-    render json: response
 
   end
 
