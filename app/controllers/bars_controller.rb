@@ -77,6 +77,7 @@ class BarsController < ApplicationController
   def show
     @bar = Bar.find(params[:id])
   end
+ end
 
     # response = client.search(request)
     # puts "#"*100
