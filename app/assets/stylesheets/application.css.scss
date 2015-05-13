@@ -94,6 +94,7 @@ body, html {
       margin-bottom: 20em;
       margin-top: 1.5em;
       height: 30.5em;
+
   }
 
  .ui.basic.teal.button {
@@ -113,7 +114,8 @@ body, html {
     background-color: rgba(255,255,255,0.8);
     // width: 60em;
     top: 0%;
-    left: -5%;
+    // left: -5%;
+    width:50%;
   }
 
   body > div.ui.secondary.segment *{
