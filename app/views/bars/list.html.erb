@@ -1,6 +1,6 @@
 <h1>Bars</h1>
 
-<table class="ui table">
+<table class="ui table" style="overflow-y:scroll;">
   <thead>
     <tr>
      <th>Bar</th>
@@ -18,7 +18,7 @@
         <td><%= bar.name%></td>
         <td><%= bar.address%></td>
         <td><%= bar.city%></td>
-        <td><%= bar.phone%></td>
+        <td><%= number_to_phone(bar.phone, area_code:true)%></td>
         <td><%= bar.teams.pluck(:name).join(",  ")%></td>
         <td><%= link_to "Delete", bar_path(bar), method: :delete, data: {confirm: "Are you sure you want to delete this bar?"}%></td>
         <!-- <td>bar.address</td>
