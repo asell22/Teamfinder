@@ -15,8 +15,12 @@ $(document).ready(function () {
       $("#map-canvas").removeClass("hidden");
 
       google.maps.event.addDomListener(window, 'load', initialize(data));
+      $('#bar-search-form input[name="city"]').val("")
+      $('#bar-search-form input[name="team"]').val("")
+      $(".errors").empty();
 
       if (!data[0]) {
+
         $('#bar-search-form').prepend('<p class="errors"> Sorry. We do not have a bar in this city that is associated with this team. If you know of one, please sign in to suggest one. </p>')
       }
 
