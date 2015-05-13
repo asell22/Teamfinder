@@ -1,14 +1,12 @@
 class BarsController < ApplicationController
   include Yelp::V2::Search::Request
   before_action :require_signin!, except: [:index, :search]
-  before_action :authorize_admin!, except: [:index, :search]
+  before_action :authorize_admin!, except: [:index, :search, :new, :create]
 
   def index
     serialized_results = []
     bars = Bar.where(city:params[:city])
     teams = Team.where(name: params[:team])
-    p "*" * 150
-    p teams.methods.sort
 
     teams.each do |team|
       bars.each do |bar|
