@@ -21,7 +21,7 @@ $(document).ready(function () {
 
       if (!data[0]) {
 
-        $('#bar-search-form').prepend('<h3 class="errors"> Sorry. We do not have a bar in this city that is associated with this team. If you know of one, please sign in to suggest one. </h3>')
+        $('#bar-search-form').prepend('<h4 class="errors"> Sorry. We do not have a bar in this city that is associated with this team. If you know of one, please sign in to suggest one. </h4>')
       }
 
 
