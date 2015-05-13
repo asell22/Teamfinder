@@ -2,6 +2,7 @@ class BarsController < ApplicationController
   include Yelp::V2::Search::Request
   before_action :require_signin!, except: [:index, :search]
   before_action :authorize_admin!, except: [:index, :search, :new, :create]
+  # caches_action :index
 
   def index
     serialized_results = []
@@ -77,7 +78,7 @@ class BarsController < ApplicationController
   def show
     @bar = Bar.find(params[:id])
   end
- 
+
 
     # response = client.search(request)
     # puts "#"*100

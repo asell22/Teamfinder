@@ -13,7 +13,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @bars.each do |bar| %>
+    <% @bars.reverse.each do |bar| %>
       <tr>
         <td><%= bar.name%></td>
         <td><%= bar.address%></td>
