@@ -20,12 +20,18 @@
     <%= link_to "Sign Out", signout_path %>
     |
     <%= link_to "Suggest Bar", new_bar_path %>
-  
+
+    <% admins_only do%>
+      |
+      <%= link_to "Admin List", bars_list_path %>
+    <% end %>
+
   <% else %>
     <%= link_to "Sign Up", signup_path %>
     |
     <%= link_to "Sign In", signin_path %>
   <% end %>
+
   </div>
 
   <p class="flash"><%= flash.notice %></p>
