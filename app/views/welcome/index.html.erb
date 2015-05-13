@@ -1,5 +1,8 @@
+  <div class="header">
+    <h1 class="ui dividing header">Sports Bar Finder</h1>
 
-  <h1 class="ui dividing header">Sports Bar Finder</h1>
+  </div>
+
 
 
   <%= form_tag("", {class:"ui form", id:"bar-search-form"}) do %>
@@ -13,8 +16,14 @@
         <%= text_field_tag :team, "", placeholder:"Enter Team"%>
       </div>
     </div>
-
-    <button type="submit" class="ui submit red button">Search</button>
+    <div class="two fields eight column centered row">
+      <div class="field column">
+        <button type="submit" class="ui submit red button">Search</button>
+      </div>
+      <div class="field column">
+        <%= image_tag("yelp_logo_75x38.png")%>
+      </div>
+    </div>
   <% end %>
 
 </div>
