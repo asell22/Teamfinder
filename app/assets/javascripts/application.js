@@ -159,7 +159,7 @@ function initialize(data) {
       + '<h3>' + entry.name + '</h3>'
       + '<p>' +  entry.address + '</p>'
       + '<p>' + entry.phone + '</p>'
-      + '<a href="' + entry.url + '">go to website</a></div>'
+      + '<a href="' + entry.url + '" target="_blank">go to website</a></div>'
 
     };
 
